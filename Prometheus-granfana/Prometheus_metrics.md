@@ -1,5 +1,5 @@
 # Prometheus Metrics
- Prometheus thong thuong co 4 core metric bao gom
+ Prometheus thong thuong co 4 dang metric chinh bao gom
  Counter,
  Gaus, 
  Histogram,
