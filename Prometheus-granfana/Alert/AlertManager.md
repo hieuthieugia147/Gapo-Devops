@@ -1,8 +1,5 @@
 # AlertManagement
-
-## Cai Dat
-
-## Alert-Rules
+### Alert-Rules
 
 ```Cau hinh Alert
 ALERT <alert name>
@@ -34,7 +31,8 @@ ALERT APIHighRequestLatency
 ```
 Alert này sẽ cảnh cáo các request có thời gian trễ trung bình 1 request lớn hơn 1s
 IF api_http_request_latencies_second{quantile="0.5"} > 1 Kiểm tra các request có độ trễ lớn hơn 1
+
 FOR 1m Thời gian đợi 1 phút
+
 ANNOTATIONS 
- summary = "High request latency on {{ $labels.instance }}": Trả về metric summary trả về metric labels.instance
- description = "{{ $labels.instance }} has a median request latency above 1s (current value: {{ $value }}s)", Trả về giá trị trên
+  Trả về thông báo 
