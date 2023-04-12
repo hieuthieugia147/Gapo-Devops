@@ -81,8 +81,7 @@ make install
 
 ### Cài đặt NRPE
 
-Cài đặt nagios lên một máy được gọi là nagios server. Cài đặt và sử dụng NRPE để có thể giám sát được máy linux từ xa được gọi là remote linux
+Cài đặt nagios lên một máy được gọi là nagios server. Cài đặt và sử dụng NRPE để có thể giám sát được máy linux từ xa được gọi là remote linux.
 
-Bằng 1 cách thần kì nào đó cài như tài liệu nrpe thì ra lỗi :v
 
 
