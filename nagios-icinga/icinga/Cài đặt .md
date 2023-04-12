@@ -17,9 +17,11 @@ wget -O - https://packages.icinga.com/icinga.key | apt-key add -
 apt-get update
 ```
 
-Bước 2: Down load về máy
+Bước 2: Sau đó tiền hành Download icinga2 về máy
 ```
-apt install icinga2
+sudo apt install icinga2 -y
 ```
+
+Như vậy là chúng ta đã cài được icinga2 trên máy tính của mình
 
 

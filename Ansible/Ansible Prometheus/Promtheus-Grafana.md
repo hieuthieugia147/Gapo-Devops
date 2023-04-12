@@ -1,6 +1,7 @@
 # Ansible Monitoring
  ansible dung muc dich de tu dong hoa cai dat tren cac may chu thay vi dung command line
- O day toi se cai dat thu ngiem 1 mo hinh monitoring gom 3 may
+ Trong phần này sử dụng 1 mô hình cài đặt 3 máy dể thiết lâp cài đặt cơ
+
 
 | Ten   | ip             | Tool cai dat |
 :-----  | :---------- | :-------------- 
@@ -9,11 +10,18 @@
 | Node  | 192.168.48.141          | Node_exporter              | 
 
 ## Hoat dong
-cach hoat dong giong nhu bai viet , truoc het can cau hinh python3 tren tat ca cac may,ansible tren con control node va thu hien ssh-key den tat ca cac may trong he thong. Do tài nguyên có hạn =(( nên mình chạy lấy server là  control_node để cài đặt.
-## Cau truc file ansible
+
+## Code
 Chúng ta có thể tham khảo đường link https://github.com/cloudalchemy
 
-Họ lập trình rất đầy đủ cấu hình với các hệ điều hành khác nhau.Chỉ cần vác về là chạy được =)). Nhưng tương đối khó hiểu với người mới bắt đầu như mình do đó mình viết đơn giản trước :v, chỉ chạy được trên ubuntu-server nhưng đơn giản hơn
+Họ lập trình rất đầy đủ cấu hình với các hệ điều hành khác nhau.Chỉ cần vác về là chạy được (Update: Mới bị khóa cmnr, h chỉ xem được thôi). Nhưng tương đối khó hiểu với người mới bắt đầu như mình do đó mình viết đơn giản trước :v, chỉ chạy được trên ubuntu-server nhưng đơn giản hơn
+
+Souce code : https://github.com/hieuthieugia147/ansible-code
+
+## Source Code
+
+## Review
+### Giới thiệu thư mục
 ```
 root@server:/etc/ansible-prometheus-node_exporter-alertmanager# ls
 ```
@@ -36,8 +44,7 @@ hoặc
  ansible-playbook playbook.yml -i inventory --extra-vars "ansible_sudo_pass=123"
 ```
 thêm extra-vars để tránh việc nhập sudo pass với nhiều máy khác nhau và yêu cầu các máy có chung pass.
-
-## Thư mục roles
+### Thư mục roles
 roles là một file tập hợp các quy tắc của playbook ở đây do có nhiều tools nên mình chia ra các roles tương ứng với các tools. Mỗi folder bao gồm các file nhỏ hơn quy định quy tắc riêng biệt. Ví dụ
 ```
 root@server:/etc/ansible-prometheus-node_exporter-alertmanager/roles/prometheus# ls
@@ -149,7 +156,7 @@ version: "2.3.2"
 ở đây chương trình thực hiện lệnh systemctl daemon-reload để reload lại các services.
 #### Thư mục Templates và Files
 Cả hai thư mục đều có chức năng chính lấy các file trong nó và chuyển vào 1 đường dẫn cụ thể nào đó. Điểm khác nhau là các file trong thư mục files được copy trưc tiếp vào đường dẫn đó còn templates hỗ trợ thêm 1 só chức năng như for, while.vvv để phù hợp với từng máy khác nhau.
-# Chạy file ansible
+## Chạy file ansible
 Link code: 
 Cài đặt prometheus bằng ansible
 ```

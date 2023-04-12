@@ -1,43 +1,29 @@
-# Gioi thieu ve Monitoring he thong
- O day toi se cai dat thu ngiem 1 mo hinh monitoring gom 3 may. tat ca cac may su dung Ubuntu Server 22.04 LTS
-
-| Ten   | ip             | Tool cai dat |
+# Monitoring
+Do tài nguyên có hạn(Ram 8G) nên mình cài đặt 3 máy để thiêt lập 1 hệ thống monitoring, một hệ thống thông thường bao gồm Nhiều máy chủ cài đặt Node_exporter, vai trò là truy xuất dữ liệu từ các node này và gửi lên promtheus, 1 máy chủ cài promtheus có chức năng thu thập thông tin từ các node đã được gửi lên. Máy chủ này đóng vai trò giám sát, truy xuất dữ liệu từ các node đã được cài đặt
+| Ten   | ip             | Tool cai dat | Hệ điều hành |
 :-----  | :---------- | :-------------- 
-| Sever | 192.168.48.142 | Prometheus - Grafana | 
-| Alert | 192.168.48.145      | Alertmanager - Prometheus-bot               | 
-| Node  | 192.168.48.141          | Node_exporter              | 
+| Sever | 192.168.48.142 | Prometheus - Grafana - (Alertmanager-Prometheus-bot) | Ubuntu Server 22.04 LTS |
+| Alert | 192.168.48.145      | Alertmanager - Prometheus-bot               | Ubuntu Server 22.04 LTS |
+| Node1  | 192.168.48.141          | Node_exporter Blackbox_exporter            | Ubuntu Server 22.04 LTS |
+| Node2  | 192.168.48.1 | Node_exporter - Blackbox_exporter | Window Home 11 |
 
-## Hoat dong
-Node se co vai tro client , node_exporter thu thap thong tin tu Node nay thong qua cac metrics. Nhap lenh nay de co the xem thong tin ve cac metrics
-```
-192.168.48.141:9100/metrics
-```
-Thong tin metrics duoc server thu thap gui prometheus. Sau do prometheus ban cac thong tin nay cho grafana de hien thi du lieu. truy cap vao duong dan de dang nhap vao grafana-server
-```
-192.168.48.142:3000
-```
-prometheus co chuc nang alert tuc la tao canh bao.Cac canh bao goi la cac rules.Binh thuong cac rules o trang thai inactive tuc la khong hoat dong. Nhung neu co dieu kien kich hoat rules cac alert duoc gui di. Se co hai trang thai chinh la pending va firing
-pending : dang chuan bi duoc gui di,nhung chua den alertmanager khi nay chung ta co the truy cap vao http://192.168.48.145:9093 thi se chua co alert dc gui den
-firing: alert da duoc gui di, luc nay chung ta co the truy cao theo duong dan o tren se thu dc 1 alert dang gui toi alertmanager
 
-Alertmanager nhan duoc canh bao co the tiep tuc gui thong bao qua email,telegram,vvv
-(do email ko authencation bang viec chi dung user va pass nua nen viec gui qua email ko dc)
-### Cai dat Prometheus 
-#### Cai dat
-Note Tat ca cac lenh chay duoi quyen root
+## Cai dat Prometheus 
+### Cai dat Prometheus
+Note Tất cả các lệnh chạy dưới quyền root
 
 Buoc 1: Tao user cho service
 ```
 useradd --no-create-home --shell /bin/false prometheus
 ```
-Buoc 2: Phan quyen cho prometheus
+Buoc 2: Phân quyền cho Prometheus
 ```
 mkdir /etc/prometheus
 mkdir /var/lib/prometheus
 chown prometheus:prometheus /etc/prometheus
 chown prometheus:prometheus /var/lib/prometheus
 ```
-Buoc 3: Download va phan quyen cho cac thu muc prometheus
+Buoc 3: Download di chuyển các file vào các mục tương ứng 
 ```
 cd /opt
 wget https://github.com/prometheus/prometheus/releases/download/v2.27.1/prometheus-2.27.1.linux-amd64.tar.gz -O prometheus.tar.gz
@@ -59,7 +45,7 @@ chown -R prometheus:prometheus /etc/prometheus/console_libraries
 rm -rf prometheus*
 cd -
 ```
-Buoc 4: Tao file cau hinh cua prometheus
+Buoc 4: Thiết lập file cấu hình của promtheus
 ```
 root@server:/# touch etc/prometheus/prometheus.yml
 root@server:/# nano etc/prometheus/prometheus.yml
@@ -196,3 +182,20 @@ systemctl status alertmanager
 ```
 Chay lenh tren va mo http://ipalert:9093 de check xem thong tin co nhan dc ko
 ### Cai dat Prometheusbot va gui canh bao ve telegram
+### Cai dat Telegram
+
+## Hoat dong
+Mỗi node trong hệ thống đóng vai trò như các máy chủ cần được giám sát 
+```
+192.168.48.141:9100/metrics
+```
+Thong tin metrics duoc server thu thap gui prometheus. Sau do prometheus ban cac thong tin nay cho grafana de hien thi du lieu. truy cap vao duong dan de dang nhap vao grafana-server
+```
+192.168.48.142:3000
+```
+prometheus co chuc nang alert tuc la tao canh bao.Cac canh bao goi la cac rules.Binh thuong cac rules o trang thai inactive tuc la khong hoat dong. Nhung neu co dieu kien kich hoat rules cac alert duoc gui di. Se co hai trang thai chinh la pending va firing
+pending : dang chuan bi duoc gui di,nhung chua den alertmanager khi nay chung ta co the truy cap vao http://192.168.48.145:9093 thi se chua co alert dc gui den
+firing: alert da duoc gui di, luc nay chung ta co the truy cao theo duong dan o tren se thu dc 1 alert dang gui toi alertmanager
+
+Alertmanager nhan duoc canh bao co the tiep tuc gui thong bao qua email,telegram,vvv
+(do email ko authencation bang viec chi dung user va pass nua nen viec gui qua email ko dc)
