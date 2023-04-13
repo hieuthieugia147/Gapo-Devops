@@ -1,6 +1,7 @@
 # So sánh Promtheus và Nagios và Icinga, Nagios
 ## Link tham khảo
 https://viettelco.vn/cac-cong-cu-giam-sat-linux-tot-nhat/
+
 https://community.icinga.com/t/icinga-and-prometheus-whats-the-difference/177
 
 https://www.linkedin.com/pulse/white-box-vs-black-monitoring-vipul-sharma/?trk=pulse-article
@@ -11,8 +12,6 @@ https://www.linkedin.com/pulse/sre-concepts-part-7-whiteblack-box-monitoring-mar
 Đầu tiên để so sánh giữa 3 phần mềm này thì thì chúng ta giám sát thường có 2 khái niệm khi giám sát là Whitebox Monitoring và Blackbox monitoring.
 ### Whitebox Monitoring
 Loại giám sát này chủ yếu đề cập đến việc giám sát trạng thái bên trong của các ứng dụng đang chạy trên hệ thống của bạn. Chủ yếu liên quan đến việc hiển thị các số liệu dành riêng cho ứng dụng của bạn như tổng số yêu cầu http đã nhận/độ trễ, v.v. Sau đó Các nhà phát triển ứng dụng thích chuyển sang Whitebox Monitoring để nắm quyền sở hữu ứng dụng, để đảm bảo ứng dụng hoạt động mà không có bất kỳ sự cố hoặc lỗi nào như mong đợi. Do đó whitebox monitoring trạng thái của ứng dụng còn sống hay đã chết, mức sử dụng cpu/đĩa. Node_exporter là 1 ứng dụng whitebox monitor điển hình khi cho phép chúng ta thực hiện giám sát thông số về cpu, ram , số http request , disk .
-
-PS: Sau khi đọc 1 số trang hầu hết nếu chúng ta chỉ thực hiện whitebox monitoring họ đều recommend sử dụng Prometheus vì đơn giản dễ sử dụng và cài đặt.
 
 ### Blackbox monitoring
 
@@ -68,7 +67,9 @@ Icinga là một nhánh của ganois core được phát triển khoảng 2009. 
 -  Các nhà phát triển không cung cấp bất kỳ sự tư vấn hoặc hỗ trợ của bên thứ nhất
 ## Giới thiệu và cài đặt các công cụ trên: Trong thư mục tương ứng
 Prometheus-Grafana : https://github.com/hieuthieugia147/Gapo-Devops/tree/main/Prometheus-granfana
+
 Icinga2 : https://github.com/hieuthieugia147/Gapo-Devops/tree/main/nagios-icinga/icinga
+
 Nagios : https://github.com/hieuthieugia147/Gapo-Devops/tree/main/nagios-icinga/nagios
 ## Tổng kết
 | Chức năng   | Promtheus - Grafana            | Nagios Core |Icinga2 
@@ -77,6 +78,8 @@ Nagios : https://github.com/hieuthieugia147/Gapo-Devops/tree/main/nagios-icinga/
 |Mô hình quản trị|không thông qua cụm dữ liệu phân tán,từng node của prometheus đôc lâp với nhau |cụm dữ liệu phân tán | cụm dữ liệu phân tán|
 |Opensoruce Support|Ít|Lớn|Lớn|
 |Giám sát trên server | Có hỗ trợ tất cả loại OS phổ biến | Chỉ linux và window | Chỉ linux và window |
+|Whitebox Monitoring|Tốt hơn|Có|Có|
+|Blackbox Monitoring|Có|Có|Tốt hơn, nhiều chức năng hơn|
 |Giám sát SaaS/Web | Ít hỗ trợ     | Có               | Có |
 | Giám sát tài nguyên mạng  | Có (Blackbox_exporter)        | Có (bản XI hỗ trợ tốt hơn)         | Có |
 | Giám sát thiết bị mạng(router, printer) | Không | Có | Có | 
@@ -95,8 +98,8 @@ Nagios : https://github.com/hieuthieugia147/Gapo-Devops/tree/main/nagios-icinga/
 |Documentation and support|Tốt|Tốt|Tốt|
 |Xác thực và mã hóa|Không hỗ trợ sẵn, dễ dàng truy cập lấy thông số từ các endpoint|Hỗ trơ xác thực,mã hóa |Hỗ trơ xác thực, mã hóa,kiểm tra thông tin SSL/TLS|
 |Độ tin cậy khi thu thập dữ liệu|Cao||Cao|
-
- Promtheus-Grafana hiệu quả hơn trong việc giám sát hệ thống server vì sự tiện lợi,dễ cấu hình và hỗ trợ nhiều hệ điều hành khác nhau.Prometheus được sử dụng để giám sát hầu hết các hệ thống container và Kubernetes.
+### Nên sử dụng khi nào ?
+ Promtheus-Grafana hiệu quả hơn trong việc giám sát hệ thống server vì sự tiện lợi,dễ cấu hình và hỗ trợ nhiều hệ điều hành khác nhau.Prometheus giám sát Whitebox tốt hơn so với 2 công cụ còn lại nhờ sự
 
  Icinga hỗ trợ  việc giám sát các Services as a Software, các trang web: như các giao thức, chứng chỉ SSL .Icinga hiệu quả hơn promtheus việc giám sát cụm dữ liệu phân tán và giám sát trên Cloud.
 
