@@ -6,6 +6,8 @@ https://community.icinga.com/t/icinga-and-prometheus-whats-the-difference/177
 https://www.linkedin.com/pulse/white-box-vs-black-monitoring-vipul-sharma/?trk=pulse-article
 
 https://www.linkedin.com/pulse/sre-concepts-part-7-whiteblack-box-monitoring-marcel-koert/
+
+ Bảo mật prometheus: https://jfrog.com/blog/dont-let-prometheus-steal-your-fire/
 ## Phân loại Giám sát 
 Đầu tiên để so sánh giữa 3 phần mềm này thì thì chúng ta giám sát thường có 2 khái niệm khi giám sát là Whitebox Monitoring và Blackbox monitoring.
 ### Whitebox Monitoring
@@ -89,14 +91,12 @@ Icinga là một nhánh của ganois core được phát triển khoảng 2009. 
 |Thiết lập cảnh báo|Có, đơn giản||Có|
 |Documentation and support|Tốt|Tốt|Tốt|
 |Xác thực và mã hóa|Không hỗ trợ sẵn, dễ dàng truy cập lấy thông số từ các endpoint|Hỗ trơ xác thực,mã hóa |Hỗ trơ xác thực, mã hóa,kiểm tra thông tin SSL/TLS|
-
 |Độ tin cậy khi thu thập dữ liệu|Cao||Cao|
 
- Promtheus-Grafana hiệu quả hơn trong việc giám sát hệ thống server vì đơn giản, nhanh và tiện lợi.Prometheus được sử dụng để giám sát hầu hết các hệ thống container và Kubernetes.
+ Promtheus-Grafana hiệu quả hơn trong việc giám sát hệ thống server vì sự tiện lợi,dễ cấu hình và hỗ trợ nhiều hệ điều hành khác nhau.Prometheus được sử dụng để giám sát hầu hết các hệ thống container và Kubernetes.
 
- Icinga hỗ trợ hiệu quả hơn việc giám sát các dịch vụ Services as a Software, các trang web. Icinga hiệu quả hơn việc giám sát cụm dữ liệu phân tán và giám sát trên Cloud.
+ Icinga hỗ trợ hiệu quả hơn việc giám sát các Services as a Software, các trang web: như các giao thức, chứng chỉ SSL . Icinga hiệu quả hơn việc giám sát cụm dữ liệu phân tán và giám sát trên Cloud.
 
  Nagios phù hợp kiểu giám sát blackbox khi chúng ta chủ yếu tập trung việc kiểm tra trạng thái(up/down) và thời gian hoạt động của dịch vụ mà ko quan tâm đến các dữ liệu khác. Nagios đơn giản, gọn nhẹ tiêu thụ ít tài nguyên hơn 2 ứng dụng trên.
 
- ## Link tham khảo
- Bảo mật prometheus: https://jfrog.com/blog/dont-let-prometheus-steal-your-fire/
+
