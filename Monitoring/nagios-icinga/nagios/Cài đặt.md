@@ -1,7 +1,9 @@
 # Cài đặt
 
-Nagios có 2 phiên bản nagios core(miễn phí) và nagios XI (tính phí). Do nghèo :v nên tải bên core về dùng tạm. Theo như trang chủ nagios giới thiệu bản nagios core được hỗ trợ 1 số tính năng sau đây
+Nagios có 2 phiên bản nagios core(miễn phí) và nagios XI (tính phí). Do nghèo :v nên tải bên core về dùng tạm. Theo như trang chủ nagios giới thiệu bản nagios core được hỗ trợ 1 số tính năng sau đây:
  ![Images\Nagios-Introduction](Images\Nagios-Introduction1.png)
+
+ Bản Nagios core hộ trỡ giám sát cơ sở hạ tần và giám sát server, bên cạnh đó điểm mạnh của Nagios core chính là sự linh hoạt với lượng opensource engine cung cấp rất lớn.
 ### Cài đặt Nagios Core
 Follow theo cách cài đặt trên trang chủ
 Nguồn: https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu

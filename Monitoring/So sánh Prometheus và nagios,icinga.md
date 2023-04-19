@@ -27,9 +27,9 @@ So sánh tại link : https://sourceforge.net/software/compare/Icinga-vs-Nagios-
 ## Đánh giá 
 ### Prometheus 
 #### Ưu điểm
-Prometheus kết hợp với Grafana tạo thành 1 môi trường giám sát,theo dõi rất trực quan và hoàn hảo. Bên cạnh đó Prometheus hoạt động được với hầu hết các loại OS phổ biến và là tool duy nhất trong 3 tool này có thể giám sát được hệ thống container, k8s cluster, vvv. Vì thế nếu sử dụng giám sát server trên hệ điều hành khác(trừ linux/window server) cũng như các hệ thống k8s thì promtheus là lựa chọn tốt nhất trong 3 tool này.
+Prometheus kết hợp với Grafana tạo thành môi trường giám sát,theo dõi rất trực quan và thuận tiện. Bên cạnh đó Prometheus hoạt động được với hầu hết các loại OS phổ biến và có thể giám sát được hệ thống container, kubernets. Vì thế nếu sử dụng giám sát server trên hệ điều hành khác(trừ linux/window server),cũng như các hệ thống k8s thì promtheus là lựa chọn tốt nhất trong 3 tool này.
 
-Còn đối với linux/window server thì người ta (em đọc 1 số bài thảo luận trên các trang) thì họ đều chủ yếu sử dung prometheus để giám sát whitebox thông qua node_exporter . Còn khi giám sát blackbox và network các nhà phát triển thường sử dụng ganois, icinga2 , hoặc Zabbix . Một số nguyên nhân được đưa ra là ví các công cụ như icinga2, Zabbix có khả năng giám sát phân tán, hiệu năng tốt hơn promtheus khi giám sát blackbox, cộng đồng hỗ trợ cũng tôt hơn cũng như khả năng mở rộng, thay đổi tốt hơn promtheus.
+Còn đối với linux/window server thì người ta (em đọc 1 số bài thảo luận trên các trang) thì họ đều chủ yếu sử dung prometheus để giám sát whitebox thông qua node_exporter . Còn khi giám sát blackbox và các network các nhà phát triển thường sử dụng ganois, icinga2 , hoặc Zabbix . Một số nguyên nhân được đưa ra là ví các công cụ như icinga2, Zabbix có khả năng giám sát phân tán, hiệu năng tốt hơn promtheus khi giám sát blackbox, cộng đồng hỗ trợ cũng tôt hơn cũng như khả năng mở rộng, thay đổi tốt hơn promtheus.
 
 Ngoài ra promtheus hộ trỡ giám sát các hệ thống time series Database nên có thể sử dụng giám sát hệ thống database thông qua mysqld_exporter.
 #### Nhược điểm
