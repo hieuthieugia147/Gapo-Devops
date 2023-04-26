@@ -1,0 +1,10 @@
+# Cài đặt
+Trên trang chính thức của icinga có support việc cài đặt bằng ansible
+
+Link https://github.com/Icinga/ansible-playbooks
+
+https://github.com/Icinga/ansible-icinga2
+
+Họ viết rất đầy đủ chi tiết nên chúng ta không cần code lại làm gì cho mệt :D
+
+## Quá trình cài đặt

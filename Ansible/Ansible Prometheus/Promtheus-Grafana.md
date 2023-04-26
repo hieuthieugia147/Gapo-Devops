@@ -16,7 +16,7 @@ Chúng ta có thể tham khảo đường link https://github.com/cloudalchemy
 
 Họ lập trình rất đầy đủ cấu hình với các hệ điều hành khác nhau.Chỉ cần vác về là chạy được (Update: Mới bị khóa cmnr, h chỉ xem được thôi). Nhưng tương đối khó hiểu với người mới bắt đầu như mình do đó mình viết đơn giản trước :v, chỉ chạy được trên ubuntu-server nhưng đơn giản hơn
 
-Souce code : https://github.com/hieuthieugia147/ansible-code
+Souce code : https://github.com/hieuthieugia147/ansible-promtheus
 
 ## Source Code
 
